@@ -1,0 +1,26 @@
+@import '../../../styles/variables.scss';
+
+.main-header {
+  width: 100%;
+  height: $padding-top;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  padding: 0 1rem;
+  z-index: 5;
+  background: $color-light;
+}
+
+.hidden {
+  transform: translateY(-110%);
+}
+
+@media screen and (min-width: $display-tablet) {
+}
+
+@media screen and (min-width: $display-desktop) {
+}

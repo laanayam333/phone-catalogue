@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.phone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+
+  &__content {
+    &__title {
+      color: $color-dark;
+      font-size: $title-size-desktop;
+    }
+  }
+
+  &__image {
+    img {
+      width: 20rem;
+      height: 30rem;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

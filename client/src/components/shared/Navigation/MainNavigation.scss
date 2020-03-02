@@ -1,0 +1,41 @@
+@import '../../../styles/variables.scss';
+
+.main-navigation {
+  &__title {
+    color: $color-dark;
+
+    a {
+      color: $color-dark;
+      font-size: $text-size-mobile;
+      text-transform: uppercase;
+    }
+  }
+
+  &__header-nav {
+    display: none;
+  }
+
+  &__drawer-nav {
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: $display-desktop) {
+  .main-navigation {
+    &__drawer-nav {
+      display: none;
+    }
+
+    &__header-nav {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        color: $color-dark;
+        font-size: 2rem;
+      }
+    }
+  }
+}

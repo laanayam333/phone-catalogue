@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.burger {
+  display: block;
+}
+
+/* RESPONSIVE STYLES */
+
+// devices from 769px and larger
+@media screen and (min-width: $display-desktop) {
+  .burger {
+    display: none;
+  }
+}

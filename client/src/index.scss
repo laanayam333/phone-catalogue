@@ -1,0 +1,49 @@
+@import './styles/variables.scss';
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100vw;
+  font-size: 62.5%;
+  font-family: $text-font;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+  background: $color-light;
+}
+
+h2 {
+  color: $color-dark;
+  font-size: 4rem;
+}
+
+p {
+  line-height: $line-space;
+}
+
+a {
+  font-weight: $bold;
+  font-size: $subtitle-size-mobile;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
