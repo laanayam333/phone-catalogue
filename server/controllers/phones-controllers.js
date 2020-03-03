@@ -32,5 +32,5 @@ getPhoneById = async (req, res, next) => {
   res.json({ phone: phone.toObject({ getters: true }) }); // turns to true js object. that getter returns id to a string
 };
 
-exports.getPhoneById = getPhoneById;
 exports.getPhones = getPhones;
+exports.getPhoneById = getPhoneById;

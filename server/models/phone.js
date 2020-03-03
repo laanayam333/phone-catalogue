@@ -9,8 +9,8 @@ const phoneSchema = new Schema({
   color: { type: String, required: true },
   price: { type: Number, required: true },
   imageURL: { type: String, required: true },
-  screen: { type: Number, required: true },
-  processor: { type: Number, required: true },
+  screen: { type: String, required: true },
+  processor: { type: String, required: true },
   ram: { type: Number, required: true }
 });
 

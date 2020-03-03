@@ -1,16 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('dotenv/config');
 
 const phonesRoutes = require('./routes/phones-routes');
 const HttpError = require('./models/http-error');
 
 const app = express();
 
-//! MIDDLEWARE
+//!MIDDLEWARE
 app.use(bodyParser.json());
 
-//Solve CORS problems
+//!CORS MIDDLEWARE
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); //controls which domains have access
   res.setHeader(
@@ -21,8 +22,10 @@ app.use((req, res, next) => {
   next();
 });
 
+//!ROUTE MIDDLEWARE
 app.use('/phones', phonesRoutes);
 
+//!ERROR HANDLING MIDDLEWARE
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);
   throw error;
@@ -36,14 +39,22 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
 
-//Mongoose connection
+//!DATABASE CONNECTION - LISTEN TO SERVER
 mongoose
   .connect(
-    'mongodb+srv://laanayam:2hGSSikyA3I7qL0h@cluster0-jmlqf.mongodb.net/phones_db?retryWrites=true&w=majority'
+    process.env.DB_CONNECTION,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    },
+
+    () => console.log('Connected to database')
   )
+
   .then(() => {
     app.listen(5000);
   })
+
   .catch(err => {
     console.log(err);
   });
