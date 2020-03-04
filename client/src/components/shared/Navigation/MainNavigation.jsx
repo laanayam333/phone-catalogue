@@ -30,10 +30,10 @@ const MainNavigation = props => {
       <MainHeader>
         <h1 className="main-navigation__title">
           <Link
-            to="/phones"
+            to="/"
             onClick={drawerIsOpen === true ? toggleDrawerHandler : null}
           >
-            Phone Catalogue
+            Phonehouse
           </Link>
         </h1>
 

@@ -16,7 +16,6 @@
   }
 
   a {
-    // border: 1px solid transparent;
     color: $color-dark;
     padding: 0.5rem;
     font-size: $title-size-mobile;
@@ -27,12 +26,12 @@
 @media screen and (min-width: $display-desktop) {
   .nav-links {
     flex-direction: row;
-    width: 50%;
-    justify-content: space-evenly;
     padding: 0;
+    font-size: $text-size-mobile;
 
     a {
       color: $color-light;
+      font-size: $text-size-mobile;
 
       &:hover,
       &:active {

@@ -20,13 +20,14 @@ const phoneReducer = (state = initialState, action) => {
 
     case FETCH_PHONES_SUCCESS:
       return {
+        ...state,
         loading: false,
-        phones: action.payload,
-        error: ''
+        phones: action.payload
       };
 
     case FETCH_PHONES_FAILURE:
       return {
+        ...state,
         loading: false,
         phones: [],
         error: action.payload

@@ -1,48 +1,62 @@
 import React from 'react';
+
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+
+import { useParams, Link } from 'react-router-dom';
+
+import Spinner from '../components/shared/UIElements/Spinner';
 
 import './PhoneDetails.scss';
 
 const PhoneDetails = () => {
-  const phonesData = useSelector(state => state.phones);
-
   const { phoneId } = useParams();
 
-  console.log(`phones data ${phonesData}`);
+  const phonesData = useSelector(state => state.phoneReducer.phones);
 
-  const selectedPhone = phonesData.find(phone => phone._id === phoneId);
+  const phone = phonesData.find(phone => phoneId === phone._id.toString());
 
-  console.log(`the selected phone is ${selectedPhone.manufacturer}`);
+  const loading = useSelector(state => state.phoneReducer.loading);
 
-  return (
-    <div className="details">
-      <img
-        src={selectedPhone.imageURL}
-        alt={selectedPhone.name}
-        className="details__image"
-      />
-      <h1 className="details__name">
-        {selectedPhone.manufacturer}'s {selectedPhone.name}
-      </h1>
-      <p className="details__description">{selectedPhone.description}</p>
-      <h2 className="details__specs">Phone Specs</h2>
+  return loading ? (
+    <Spinner />
+  ) : (
+    <>
+      <div className="details">
+        <div className="details__image">
+          <img src={phone.imageURL} alt={phone.name} />
+        </div>
 
-      <h3 className="details__specs__heading">Color</h3>
-      <p className="details__description">{selectedPhone.color}</p>
+        <div className="details__main">
+          <h1 className="details__main__name">{phone.name}</h1>
+          <h2 className="details__main__manufacturer"> {phone.manufacturer}</h2>
+          <p className="details__main__description">{phone.description}</p>
+        </div>
 
-      <h3 className="details__specs__heading">Price</h3>
-      <p className="details__description">{selectedPhone.price}</p>
+        <div className="details__specs">
+          <h2 className="details__specs__title">Specs</h2>
 
-      <h3 className="details__specs__heading">Screen</h3>
-      <p className="details__description">{selectedPhone.screen}</p>
+          <h3 className="details__specs__subtitle">Color</h3>
+          <p className="details__specs__description">{phone.color}</p>
 
-      <h3 className="details__specs__heading">Processor</h3>
-      <p className="details__description">{selectedPhone.processor}</p>
+          <h3 className="details__specs__subtitle">Price</h3>
+          <p className="details__specs__description">{phone.price}</p>
 
-      <h3 className="details__specs__heading">Ram</h3>
-      <p className="details__description">{selectedPhone.ram}</p>
-    </div>
+          <h3 className="details__specs__subtitle">Screen</h3>
+          <p className="details__specs__description">{phone.screen}</p>
+
+          <h3 className="details__specs__subtitle">Processor</h3>
+          <p className="details__specs__description">{phone.processor}</p>
+
+          <h3 className="details__specs__subtitle">Ram</h3>
+          <p className="details__specs__description">{phone.ram}</p>
+        </div>
+      </div>
+      <div className="back">
+        <Link className="back__btn" to="/">
+          Back to all phones
+        </Link>
+      </div>
+    </>
   );
 };
 

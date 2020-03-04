@@ -4,13 +4,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 2rem;
   background: white;
+  align-items: center;
 
-  &__content {
-    &__title {
-      color: $color-dark;
-      font-size: $title-size-desktop;
+  &__top {
+    color: $color-dark;
+    text-align: center;
+    text-transform: uppercase;
+
+    &__name {
+      font-size: $title-size-mobile;
     }
   }
 
@@ -20,6 +24,13 @@
       height: 30rem;
       object-fit: cover;
       object-position: center;
+    }
+  }
+
+  &__bottom {
+    &__manufacturer {
+      font-size: $subtitle-size-mobile;
+      text-transform: uppercase;
     }
   }
 }

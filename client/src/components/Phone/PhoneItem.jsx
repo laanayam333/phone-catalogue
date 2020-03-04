@@ -2,14 +2,17 @@ import React from 'react';
 
 import './PhoneItem.scss';
 
-const PhoneItem = ({ name, imageURL }) => {
+const PhoneItem = ({ name, manufacturer, imageURL }) => {
   return (
     <div className="phone">
-      <div className="phone__content">
-        <h1 className="phone__content__title">{name}</h1>
+      <div className="phone__top">
+        <h1 className="phone__top__name">{name}</h1>
       </div>
       <div className="phone__image">
         <img src={imageURL} alt={name} />
+      </div>
+      <div className="phone__bottom">
+        <h2 className="phone__bottom__manufacturer">{manufacturer}</h2>
       </div>
     </div>
   );

@@ -16,9 +16,6 @@ function useDocumentScroll(callback) {
       return currentScrollTop;
     });
 
-    console.log(`current scroll ${currentScrollTop}`);
-    console.log(`previous scroll ${previousScrollTop}`);
-
     //we will pass a callback to the function so that it can return the scroll data back to the <Header /> component.
     callback({
       previousScrollTop,

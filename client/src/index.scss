@@ -10,7 +10,6 @@
 
 html,
 body {
-  width: 100vw;
   font-size: 62.5%;
   font-family: $text-font;
 }
@@ -25,9 +24,13 @@ body {
   background: $color-light;
 }
 
+main {
+  padding-top: $padding-top;
+  height: 100vh;
+}
+
 h2 {
   color: $color-dark;
-  font-size: 4rem;
 }
 
 p {
@@ -35,9 +38,8 @@ p {
 }
 
 a {
-  font-weight: $bold;
-  font-size: $subtitle-size-mobile;
   text-decoration: none;
+  color: $color-dark;
   cursor: pointer;
 }
 

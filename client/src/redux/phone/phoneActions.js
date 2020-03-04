@@ -6,27 +6,28 @@ import {
   FETCH_PHONES_FAILURE
 } from './phoneTypes';
 
-//Action Creators
-export const fetchPhonesRequest = () => {
+//ACTION CREATORS
+export function fetchPhonesRequest() {
   return {
     type: FETCH_PHONES_REQUEST
   };
-};
+}
 
-export const fetchPhonesSuccess = phones => {
+export function fetchPhonesSuccess(phones) {
   return {
     type: FETCH_PHONES_SUCCESS,
     payload: phones
   };
-};
+}
 
-export const fetchPhonesFailure = error => {
+export function fetchPhonesFailure(error) {
   return {
     type: FETCH_PHONES_FAILURE,
     payload: error
   };
-};
+}
 
+//ACTION CONSTANTS
 export const fetchPhones = () => {
   return dispatch => {
     dispatch(fetchPhonesRequest());

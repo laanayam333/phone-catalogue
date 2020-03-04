@@ -1,0 +1,1 @@
+export const OPEN_DRAWER = 'FETCH_PHONES_REQUEST';

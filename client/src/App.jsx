@@ -1,29 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import MainNavigation from './components/shared/Navigation/MainNavigation';
-import PhonesCatalogue from './views/PhoneCatalogue';
+import PhoneList from './views/PhoneList';
 import PhoneDetails from './views/PhoneDetails';
+import Contact from './views/Contact';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <Router>
-        <MainNavigation />
-        <main>
-          <Route path="/phones" exact>
-            <PhonesCatalogue />
+    <Router>
+      <MainNavigation />
+      <main>
+        <Switch>
+          <Route path="/" exact>
+            <PhoneList />
           </Route>
+
           <Route path="/phones/:phoneId" exact>
             <PhoneDetails />
           </Route>
 
-          <Redirect to="/phones" />
-        </main>
-      </Router>
-    </Provider>
+          <Route path="/contact" exact>
+            <Contact />
+          </Route>
+        </Switch>
+      </main>
+    </Router>
   );
 };
 

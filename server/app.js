@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv/config');
 
 const phonesRoutes = require('./routes/phones-routes');
@@ -8,21 +9,12 @@ const HttpError = require('./models/http-error');
 
 const app = express();
 
-//!MIDDLEWARE
+//!MIDDLEWARES
 app.use(bodyParser.json());
 
-//!CORS MIDDLEWARE
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); //controls which domains have access
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  ); //controls which headers incoming requests may have
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
-  next();
-});
+app.use(cors());
 
-//!ROUTE MIDDLEWARE
+//  ROUTES
 app.use('/phones', phonesRoutes);
 
 //!ERROR HANDLING MIDDLEWARE
@@ -39,7 +31,7 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
 
-//!DATABASE CONNECTION - LISTEN TO SERVER
+//!DATABASE CONNECTION
 mongoose
   .connect(
     process.env.DB_CONNECTION,
@@ -50,6 +42,8 @@ mongoose
 
     () => console.log('Connected to database')
   )
+
+  //!LISTEN TO SERVER
 
   .then(() => {
     app.listen(5000);

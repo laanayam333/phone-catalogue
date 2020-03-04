@@ -3,12 +3,9 @@
 .main-navigation {
   &__title {
     color: $color-dark;
-
-    a {
-      color: $color-dark;
-      font-size: $text-size-mobile;
-      text-transform: uppercase;
-    }
+    font-size: $subtitle-size-mobile;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
   }
 
   &__header-nav {
@@ -34,7 +31,7 @@
 
       a {
         color: $color-dark;
-        font-size: 2rem;
+        font-size: $text-size-mobile;
       }
     }
   }
