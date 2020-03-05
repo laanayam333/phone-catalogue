@@ -21,6 +21,13 @@ const PhoneDetails = () => {
     <Spinner />
   ) : (
     <>
+      <Link className="back__btn" to="/">
+        <div className="back">
+          <i className="las la-arrow-circle-left back__icon"></i>
+          Back to all phones
+        </div>
+      </Link>
+
       <div className="details">
         <div className="details__image">
           <img src={phone.imageURL} alt={phone.name} />
@@ -50,11 +57,6 @@ const PhoneDetails = () => {
           <h3 className="details__specs__subtitle">Ram</h3>
           <p className="details__specs__description">{phone.ram}</p>
         </div>
-      </div>
-      <div className="back">
-        <Link className="back__btn" to="/">
-          Back to all phones
-        </Link>
       </div>
     </>
   );

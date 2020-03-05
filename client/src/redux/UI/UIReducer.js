@@ -1,17 +1,16 @@
-import { OPEN_DRAWER } from './UITypes';
+import { TOGGLE_DRAWER } from './UITypes';
 
 const initialState = {
-  showDrawer: false
+  drawerIsOpen: false
 };
 
 const UIReducer = (state = initialState, action) => {
   switch (action.type) {
-    case OPEN_DRAWER:
+    case TOGGLE_DRAWER:
       return {
         ...state,
-        showDrawer: true
+        drawerIsOpen: !state.drawerIsOpen
       };
-
     default:
       return state;
   }

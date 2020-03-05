@@ -26,6 +26,7 @@ function Contact() {
           href="https://github.com/laanayam333/"
           target="_blank"
           rel="noopener noreferrer"
+          data-cy="github-link"
         >
           <i className="lab la-github contact-icon" />
         </a>

@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleDrawer } from '../../../redux/UI/UIActions';
+
 import { useTransition, animated } from 'react-spring';
 
 import './Drawer.scss';
 
-const Drawer = ({ drawerIsOpen, children, toggleDrawerHandler }) => {
+const Drawer = ({ children }) => {
+  const drawerIsOpen = useSelector(state => state.UIReducer.drawerIsOpen);
+
+  const dispatch = useDispatch();
+
   const transitions = useTransition(drawerIsOpen, null, {
     from: {
       opacity: 0,
@@ -22,7 +29,11 @@ const Drawer = ({ drawerIsOpen, children, toggleDrawerHandler }) => {
   const content = transitions.map(
     ({ item, key, props }) =>
       item && (
-        <animated.div key={key} style={props} onClick={toggleDrawerHandler}>
+        <animated.div
+          key={key}
+          style={props}
+          onClick={() => dispatch(toggleDrawer())}
+        >
           {children}
         </animated.div>
       )

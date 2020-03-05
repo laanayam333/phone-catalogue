@@ -31,6 +31,7 @@ const PhoneList = () => {
               name={phone.name}
               manufacturer={phone.manufacturer}
               imageURL={phone.imageURL}
+              data-cy="phone-item"
             />
           </Link>
         </div>

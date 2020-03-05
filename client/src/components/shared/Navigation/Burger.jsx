@@ -1,9 +1,17 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { useSpring, animated } from 'react-spring';
+
+import { toggleDrawer } from '../../../redux/UI/UIActions';
 
 import './Burger.scss';
 
-const Burger = ({ drawerIsOpen, toggleDrawerHandler }) => {
+const Burger = () => {
+  const drawerIsOpen = useSelector(state => state.UIReducer.drawerIsOpen);
+
+  const dispatch = useDispatch();
+
   const first = useSpring({
     transform: drawerIsOpen
       ? 'translate(5px, 32px) rotate(-45deg)'
@@ -23,7 +31,7 @@ const Burger = ({ drawerIsOpen, toggleDrawerHandler }) => {
   return (
     <div className="burger">
       <svg
-        onClick={toggleDrawerHandler}
+        onClick={() => dispatch(toggleDrawer())}
         width="40"
         height="32"
         viewBox="0 0 44 44"

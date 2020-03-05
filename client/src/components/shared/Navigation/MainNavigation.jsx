@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleDrawer } from '../../../redux/UI/UIActions';
 
 import MainHeader from './MainHeader';
 import NavLinks from './NavLinks';
@@ -9,21 +11,15 @@ import Burger from './Burger';
 import './MainNavigation.scss';
 
 const MainNavigation = props => {
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+  const drawerIsOpen = useSelector(state => state.UIReducer.drawerIsOpen);
 
-  const toggleDrawerHandler = () => {
-    setDrawerIsOpen(!drawerIsOpen);
-    console.log(drawerIsOpen);
-  };
+  const dispatch = useDispatch();
 
   return (
     <>
-      <Drawer
-        drawerIsOpen={drawerIsOpen}
-        toggleDrawerHandler={toggleDrawerHandler}
-      >
+      <Drawer>
         <nav className="main-navigation__drawer-nav">
-          <NavLinks onClick={toggleDrawerHandler} />
+          <NavLinks onClick={() => dispatch(toggleDrawer())} />
         </nav>
       </Drawer>
 
@@ -31,16 +27,15 @@ const MainNavigation = props => {
         <h1 className="main-navigation__title">
           <Link
             to="/"
-            onClick={drawerIsOpen === true ? toggleDrawerHandler : null}
+            onClick={
+              drawerIsOpen === true ? () => dispatch(toggleDrawer()) : null
+            }
           >
             Phonehouse
           </Link>
         </h1>
 
-        <Burger
-          toggleDrawerHandler={toggleDrawerHandler}
-          drawerIsOpen={drawerIsOpen}
-        ></Burger>
+        <Burger />
 
         <nav className="main-navigation__header-nav">
           <NavLinks />
