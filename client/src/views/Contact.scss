@@ -51,5 +51,18 @@
 @media (min-width: $display-desktop) {
   .contact {
     margin: 0 20rem;
+
+    &__title {
+      font-size: $title-size-desktop;
+    }
+    &__link {
+      font-size: $text-size-desktop;
+    }
+
+    &__socials {
+      a {
+        font-size: $title-size-desktop;
+      }
+    }
   }
 }

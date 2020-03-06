@@ -8,10 +8,18 @@ const NavLinks = props => {
   return (
     <ul className="nav-links">
       <li>
-        <NavLink to="/">Phones</NavLink>
+        <NavLink to="/" className="nav-links__link">
+          Phones
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink
+          to="/contact"
+          data-cy="contact-link"
+          className="nav-links__link"
+        >
+          Contact
+        </NavLink>
       </li>
     </ul>
   );

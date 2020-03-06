@@ -11,6 +11,7 @@ const UIReducer = (state = initialState, action) => {
         ...state,
         drawerIsOpen: !state.drawerIsOpen
       };
+
     default:
       return state;
   }

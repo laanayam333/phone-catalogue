@@ -17,7 +17,6 @@
 
   a {
     color: $color-dark;
-    padding: 0.5rem;
     font-size: $title-size-mobile;
     font-weight: $bold;
   }
@@ -27,16 +26,18 @@
   .nav-links {
     flex-direction: row;
     padding: 0;
-    font-size: $text-size-mobile;
 
-    a {
-      color: $color-light;
-      font-size: $text-size-mobile;
+    li {
+      margin: 0 3rem;
 
-      &:hover,
-      &:active {
-        border-color: $color-dark;
-        color: $color-dark;
+      a {
+        font-size: $text-size-desktop;
+        color: $color-light-gray;
+        transition: $main-transition;
+
+        &:hover {
+          color: $color-dark;
+        }
       }
     }
   }

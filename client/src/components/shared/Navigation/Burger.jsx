@@ -29,7 +29,7 @@ const Burger = () => {
   });
 
   return (
-    <div className="burger">
+    <div className="burger" data-cy="burger-menu">
       <svg
         onClick={() => dispatch(toggleDrawer())}
         width="40"

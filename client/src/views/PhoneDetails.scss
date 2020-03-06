@@ -6,19 +6,24 @@
   grid-template-rows: 1fr 1fr 1fr;
   background: white;
   position: relative;
+  min-height: 100%;
 
   &__image {
     width: 100%;
-    margin: auto;
+    margin: auto 0;
 
     img {
       width: 100%;
+      object-fit: cover;
     }
   }
 
   &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 2rem;
-    background: $color-gray;
+    background: $color-light-gray;
     color: $color-light;
 
     &__name {
@@ -28,7 +33,6 @@
 
     &__manufacturer {
       font-size: $subtitle-size-mobile;
-      text-transform: uppercase;
     }
 
     &__description {
@@ -38,17 +42,20 @@
   }
 
   &__specs {
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: $padding-mobile;
     background: $color-light;
+
     &__title {
       font-size: $title-size-mobile;
       text-transform: uppercase;
     }
     &__subtitle {
-      text-transform: uppercase;
       font-size: $subtitle-size-mobile;
       margin-top: 2rem;
-      color: $color-gray;
+      color: $color-light-gray;
     }
     &__description {
       font-size: $text-size-mobile;
@@ -60,7 +67,8 @@
   width: 100%;
   padding: 1rem;
   font-size: $text-size-mobile;
-  background: $color-dark;
+  background: $color-dark-gray;
+  text-transform: uppercase;
 
   &__btn {
     width: 100%;
@@ -75,9 +83,9 @@
 
 @media (min-width: $display-tablet) {
   .details {
-    grid-template-columns: 1fr [de] 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: 'details__image details__image details__specs' 'details__image details__image details__specs' 'details__main details__main details__main';
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
+    grid-template-areas: 'details__image details__image details__specs' 'details__main details__main details__main';
 
     &__image {
       grid-area: details__image;
@@ -85,30 +93,56 @@
 
     &__main {
       grid-area: details__main;
+      padding: $padding-desktop;
+
+      &__name {
+        font-size: $title-size-desktop;
+      }
+
+      &__manufacturer {
+        font-size: $subtitle-size-desktop;
+      }
+
+      &__description {
+        font-size: $text-size-desktop;
+      }
     }
 
     &__specs {
-      grid-area: details__specs;
+      &__title {
+        font-size: $title-size-desktop;
+      }
+      &__subtitle {
+        font-size: $subtitle-size-desktop;
+      }
+      &__description {
+        font-size: $text-size-desktop;
+      }
     }
+  }
+
+  .back {
+    font-size: $text-size-desktop;
   }
 }
 
 @media (min-width: $display-desktop) {
   .details {
-    grid-template-columns: 1.5fr [de] 2fr 1fr;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'details__main details__image details__specs';
+    grid-template-areas: 'details__image details__main details__specs';
 
     &__image {
       grid-area: details__image;
     }
 
     &__main {
-      grid-area: details__main;
     }
 
     &__specs {
       grid-area: details__specs;
+      padding: $padding-desktop;
     }
   }
 }

@@ -32,7 +32,7 @@ export const fetchPhones = () => {
   return dispatch => {
     dispatch(fetchPhonesRequest());
     axios
-      .get('http://localhost:5000/phones')
+      .get('http://localhost:5001/phones')
       .then(response => {
         const phones = response.data;
         dispatch(fetchPhonesSuccess(phones));
