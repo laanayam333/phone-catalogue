@@ -25,7 +25,7 @@
 **Frontend**
 
 - React (Hooks) & Redux.
-- SASS & BEM naming convention.
+- SASS & BEM naming convention. Fully responsive for mobile, tablet and desktop.
 - Flexbox & CSS Grid.
 
 **Testing**
