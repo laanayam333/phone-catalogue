@@ -7,9 +7,6 @@
 2. Run npm install
 
 3. To run backend, go to **server** folder and enter command **npm start**
-   (.env file:
-   DB_CONNECTION=mongodb+srv://laanayam:2hGSSikyA3I7qL0h@cluster0-jmlqf.mongodb.net/phones_db?retryWrites=true&w=majority
-   )
 
 4. To run frontend, go to **client** folder and enter command **npm start**
 
